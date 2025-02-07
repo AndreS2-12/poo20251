@@ -1,6 +1,6 @@
 public class Ejecutar {
 
     public static void main(String[] args) {
-        System.out.println("Hola Mundito!!! JAVA");        
+        System.out.println("Hola Mundito!!! Joo");        
     }
 }
