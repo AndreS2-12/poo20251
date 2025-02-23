@@ -17,7 +17,7 @@ public class Ejercicio13 {
         // Declarar el arreglo
         int[] a = new int[n];
 
-        // llenar el arreglo con números aleatorios entre 0 y 50.
+        // llenar el arreglo con números aleatorios entre -20 y 20.
         for (int i = 0; i < a.length; i++) {
             a[i] = (int) (Math.random() * (50 - 0)) + 0;
             System.out.print(a[i] + " ");
