@@ -1,23 +1,27 @@
-package Clase4;
-
 public class Ejecutar {
     public static void main(String[] args) {
-        //Creacion de los objetos de la clase Vehiculos
+        
+        //Creación de los objetos de la clase Vehículo
         //Forma1
-        Vehiculo objVehiculo = new Vehiculo("Toyota", "Blanco", 4500.0, "TE3RE53", "2.3", "150HP");
+        Vehiculo objVehiculo1 = new Vehiculo("Toyota", "Blanco", 4500.0, "TS3456WE", 2.3, "150HP");
 
         //Forma2
-        Vehiculo oibjVehiculo2;
-        objVehiculo = new ("Ferrari", "Rojo", 5000.0, "SW245REDE3", 1.8, "450HP");
+        Vehiculo objVehiculo2;
+        objVehiculo2 = new Vehiculo("Ferrari", "Rojo", 5000.0, "SEWR567UY", 1.8, "450HP");
 
-        //Mostrar la marca del objeto vehiculo
-        System.out.println(objVehiculo.getMarca());
+        //Mostrar la marca del objeto vehículo
+        System.out.println(objVehiculo1.getMarca());
 
-        //Se va a modificar la marca del vehiculo del objeto objVehiculo
-        objVehiculo.setMarca("Chevrolet");
+        //Se va modificar la marca del vehículo del objeto objVehiculo1
+        objVehiculo1.setMarca("Chevrolet");
 
-        //Mostrar todo el objeto
-        System.out.println(objVehiculo.toString());
-        System.out.println(oibjVehiculo2);
+        //Mostrar todo objeto
+        System.out.println(objVehiculo1.toString());
+        System.out.println(objVehiculo2);
+
+        System.out.println(objVehiculo1.getMarca());
+        objVehiculo1.acelerar();
+        System.out.println(objVehiculo2.getMarca());
+        objVehiculo2.frenar();
     }
 }

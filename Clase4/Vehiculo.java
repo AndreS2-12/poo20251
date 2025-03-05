@@ -1,6 +1,5 @@
-package Clase4;
-
 public class Vehiculo {
+
     // Atributos de la clase
     private String marca;
     private String color;
@@ -10,9 +9,9 @@ public class Vehiculo {
     private String potencia;
 
     /*
-     * Constructor de la clase permite inicializar el objeto
-     * El constructor de la clase se reconoce porque tiene el mismo nombre de la
-     * clase
+     * Constructor de la clase -> permite inicializar el objeto.
+     * El constructor de la clase se reconoce porque tiene el mismo
+     * nombre de la clase
      */
 
     public Vehiculo(String marca, String color, double cilindraje,
@@ -25,7 +24,7 @@ public class Vehiculo {
         this.potencia = potencia;
     }
 
-    // Metodos getter and setter
+    // Métodos getter / setter
     public String getMarca() {
         return marca;
     }
@@ -34,30 +33,32 @@ public class Vehiculo {
         this.marca = marca;
     }
 
-    //Permite mostrar el objeto (lo que tiene)
-    public String return toString() {
-        return "Vehiculo {Marca: "+marca+" color: "+color+ " cilindraje: "+cilindraje+ " chasis: "+chasis+
-    " peso: "+peso+ " potencia: "+potencia+"}";
+    //Permite mostrar el objeto
+    public String toString() {
+        return "Vehiculo { Marca: " + marca + " Color: " + color +
+                " Cilindraje: " + cilindraje + " Chasis: " + chasis +
+                " Peso: " + peso + " Potencia: " + potencia + "}";
     }
 
-    //Metodos de la clase
+    //Métodos de la clase
     public void acelerar(){
-        System.out.println("Vehiculo acelerando...");
+        System.out.println("Vehículo acelerando....");
     }
 
     public void frenar(){
-        System.out.println("Vehiculo frenando...");
+        System.out.println("Vehículo frenando....");
     }
 
     public void girarIzquierda(){
-        System.out.println("Vehiculo girando izquieda...");
+        System.out.println("Vehículo girando izquierda....");
     }
 
     public void girarDerecha(){
-        System.out.println("Vehiculo girando derecha...");
+        System.out.println("Vehículo girando derecha....");
     }
 
     public void retroceder(){
-        System.out.println("Vehiculo retorcediendo...");
+        System.out.println("Vehículo retrocediendo....");
     }
+
 }

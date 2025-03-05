@@ -1,4 +1,4 @@
-package Clase3;
+
 public class CreacionArreglos {
     public static void main(String[] args) {
 
