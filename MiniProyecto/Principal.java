@@ -8,7 +8,7 @@ public class Principal {
        
         //Creamos el encabezado y espacios del parcadero inicializandolo con un String.
         String vistaParcaderoBcc = "                                                                        PARCADERO DE BAJO CILINDRAJE                                                           \n";
-        vistaParcaderoBcc += "   1          2        3       4       5       6       7       8       9       10     11      12      13      14      15      16      17      18      19      20     \n";
+        vistaParcaderoBcc += "   1        2        3       4       5       6       7       8       9       10     11      12      13      14      15      16      17      18      19      20     \n";
         
         //Hacer que el metodo recorra el array de objetos "Moto" que refleja los espacios del parcadero.
         //bajocc.length es la cantidad de espacios total en el parcadero.
@@ -16,7 +16,7 @@ public class Principal {
         //dentro del ciclo se verificara cada espacio que este vacio o ocupado.
         for (int indice = 0; indice < b.length; indice++) {
             if (b[indice] == null) {
-                vistaParcaderoBcc += "[ Vacio ] ";
+                vistaParcaderoBcc += "[Vacio] ";
             } else {
                 vistaParcaderoBcc += "[Ocupado] ";
             }
@@ -28,7 +28,7 @@ public class Principal {
         vistaParcaderoAcc += "    1        2       3       4       5       6       7       8       9       10     \n";
         for (int indice = 0; indice < a.length; indice++) {
             if (a[indice] == null) {
-                vistaParcaderoAcc += "[ Vacio ] ";
+                vistaParcaderoAcc += "[Vacio] ";
             } else {
                 vistaParcaderoAcc += "[Ocupado] ";
             }
@@ -76,26 +76,32 @@ public class Principal {
                         parcaderoBcc(bajocc);
                         System.out.println("Por favor elija un puesto de parqueo: ");
                         int puesto = entrada.nextInt();
-                        if (puesto > 0 && puesto < 20) {
-                            bajocc[puesto - 1] = new Moto(placa, cilindraje, marca);
-                            parcaderoBcc(bajocc);
-                        }
-                    } else if (cilindraje > 400) {
-                        parcaderoAcc(altocc);
-                    } else {
-                        System.out.println("El cilindraje no existe.");
-                    }
+                        if (puesto > 0 && puesto < 20)
+                            {
+
+                                        if (bajocc[puesto-1]==null){
+                                                bajocc[puesto - 1] = new Moto(placa, cilindraje, marca);
+                                                parcaderoBcc(bajocc);
+                                        }else {
+                                            System.out.println("El puesto esta ocupado");
+                                        }
+                            }
+                            } 
                     if (cilindraje >= 401 && cilindraje <= 2500) {
                         parcaderoAcc(altocc);
                         System.out.println("Por favor elija un puesto de parqueo: ");
                         int puesto = entrada.nextInt();
-                        if (puesto > 0 && puesto < 10) {
+                        if (puesto > 0 && puesto < 11) 
+                        {
+                            if (altocc[puesto-1]==null){
                             altocc[puesto - 1] = new Moto(placa, cilindraje, marca);
                             parcaderoAcc(altocc);
+                            }else {
+                            System.out.println("El puesto esta ocupado");
+                            }
                         }
-                    } else if (cilindraje > 2500) {
-                        parcaderoAcc(altocc);
-                    } else {
+                    } 
+                    if (cilindraje <0 && cilindraje > 2500) {
                         System.out.println("El cilindraje no existe.");
                     }
                 }
