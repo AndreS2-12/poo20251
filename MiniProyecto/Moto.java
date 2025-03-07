@@ -4,9 +4,9 @@ public class Moto {
     private String placa;
     private double cilindraje;
     private String marca;
-    private int tiempoParcadero;
+    private int horaIngreso;
 
-    public Moto(String placa, double cilindraje, String marca) {
+    public Moto(String placa, double cilindraje, String marca, int horaIngreso) {
         this.placa = placa;
         this.cilindraje = cilindraje;
         this.marca = marca;
@@ -24,8 +24,8 @@ public class Moto {
         return marca;
     }
 
-    public int getTiempoParcadero() {
-        return tiempoParcadero;
+    public int getHoraIngreso() {
+        return horaIngreso;
     }
 
     public void setPlaca(String placa) {
@@ -40,7 +40,7 @@ public class Moto {
         this.marca = marca;
     }
 
-    public void setTiempoParcadero(int tiempoParcadero) {
-        this.tiempoParcadero = tiempoParcadero;
+    public void setHoraIngreso(int tiempoParcadero) {
+        this.horaIngreso = tiempoParcadero;
     }
 }

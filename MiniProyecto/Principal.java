@@ -42,8 +42,9 @@ public class Principal {
         //Buena praxys inicializar las variables.
         int opc = -1;
         String placa = "";
-        double cilindraje;
+        double cilindraje = 0;
         String marca = "";
+        int horaIngreso = 0;
 
         
         for (int indice = 0; indice < bajocc.length; indice++) {
@@ -72,19 +73,20 @@ public class Principal {
                     cilindraje = entrada.nextDouble();
                     System.out.println("Por favor ingrese la marca: ");
                     marca = entrada.next();
+                    System.out.println("Digite la hora de ingreso (Hora militar):");
+                    horaIngreso = entrada.nextInt();
                     if (cilindraje > 0 && cilindraje <= 400) {
                         parcaderoBcc(bajocc);
                         System.out.println("Por favor elija un puesto de parqueo: ");
                         int puesto = entrada.nextInt();
                         if (puesto > 0 && puesto < 20)
                             {
-
-                                        if (bajocc[puesto-1]==null){
-                                                bajocc[puesto - 1] = new Moto(placa, cilindraje, marca);
-                                                parcaderoBcc(bajocc);
-                                        }else {
-                                            System.out.println("El puesto esta ocupado");
-                                        }
+                                if (bajocc[puesto-1]==null){
+                                bajocc[puesto - 1] = new Moto(placa, cilindraje, marca, horaIngreso);
+                                parcaderoBcc(bajocc);
+                                }else {
+                                System.out.println("El puesto esta ocupado");
+                                }
                             }
                             } 
                     if (cilindraje >= 401 && cilindraje <= 2500) {
@@ -94,7 +96,7 @@ public class Principal {
                         if (puesto > 0 && puesto < 11) 
                         {
                             if (altocc[puesto-1]==null){
-                            altocc[puesto - 1] = new Moto(placa, cilindraje, marca);
+                            altocc[puesto - 1] = new Moto(placa, cilindraje, marca, horaIngreso);
                             parcaderoAcc(altocc);
                             }else {
                             System.out.println("El puesto esta ocupado");
@@ -108,6 +110,11 @@ public class Principal {
                     break;
 
                 case 2: {
+                    System.out.println("Por ingrese el puesto: ");
+                    int puesto = entrada.nextInt();
+                    System.out.println("Ingrese el cilindraje: ");
+                    cilindraje = entrada.nextDouble();
+                    System.out.println("");
                 }
 
                 case 3: {
