@@ -93,34 +93,37 @@ public class Principal {
                     marca = entrada.next();
                     System.out.println("Digite la hora de ingreso (Hora militar): ");
                     horaIngreso = entrada.nextInt();
-                    if (cilindraje > 0 && cilindraje <= 400) {
-                        parcaderoBcc(bajocc);
-                        System.out.println("Por favor elija un puesto de parqueo: ");
-                        int puesto = entrada.nextInt();
-                        if (puesto > 0 && puesto < 20) {
-                            if (bajocc[puesto - 1] == null) {
-                                bajocc[puesto - 1] = new Moto(placa, cilindraje, marca, horaIngreso);
+                    if (horaIngreso >659 && horaIngreso <2200) 
+                    {
+                            if (cilindraje > 0 && cilindraje <= 400) {
                                 parcaderoBcc(bajocc);
-                            } else {
-                                System.out.println("El puesto esta ocupado");
+                                System.out.println("Por favor elija un puesto de parqueo: ");
+                                int puesto = entrada.nextInt();
+                                if (puesto > 0 && puesto < 20) {
+                                    if (bajocc[puesto - 1] == null) {
+                                        bajocc[puesto - 1] = new Moto(placa, cilindraje, marca, horaIngreso);
+                                        parcaderoBcc(bajocc);
+                                    } else {
+                                        System.out.println("El puesto esta ocupado");
+                                    }
+                                }
                             }
-                        }
-                    }
-                    if (cilindraje >= 401 && cilindraje <= 2500) {
-                        parcaderoAcc(altocc);
-                        System.out.println("Por favor elija un puesto de parqueo: ");
-                        int puesto = entrada.nextInt();
-                        if (puesto > 0 && puesto < 11) {
-                            if (altocc[puesto - 1] == null) {
-                                altocc[puesto - 1] = new Moto(placa, cilindraje, marca, horaIngreso);
+                            if (cilindraje >= 401 && cilindraje <= 2500) {
                                 parcaderoAcc(altocc);
-                            } else {
-                                System.out.println("El puesto esta ocupado");
+                                System.out.println("Por favor elija un puesto de parqueo: ");
+                                int puesto = entrada.nextInt();
+                                if (puesto > 0 && puesto < 11) {
+                                    if (altocc[puesto - 1] == null) {
+                                        altocc[puesto - 1] = new Moto(placa, cilindraje, marca, horaIngreso);
+                                        parcaderoAcc(altocc);
+                                    } else {
+                                        System.out.println("El puesto esta ocupado");
+                                    }
+                                }
                             }
-                        }
-                    }
-                    if (cilindraje < 0 && cilindraje > 2500) {
-                        System.out.println("El cilindraje no existe.");
+                            if (cilindraje < 0 && cilindraje > 2500) {
+                                System.out.println("El cilindraje no existe.");
+                            }
                     }
                 }
                     break;
@@ -135,7 +138,7 @@ public class Principal {
                                         puesto = entrada.nextInt();
                                         // como el obejto ya esta creado, se esta trayendo el atributo cilindraje para
                                         // generar la factura.
-                                        if (puesto > 0 && puesto < 20)
+                                        if (puesto > 0 && puesto <= 20)
                                         {
                                             if (bajocc[puesto - 1] != null) 
                                             {
@@ -165,7 +168,7 @@ public class Principal {
                             puestoc = entrada.nextInt();
                             // como el obejto ya esta creado, se esta trayendo el atributo cilindraje para
                             // generar la factura.
-                            if (puestoc > 0 && puestoc < 10) 
+                            if (puestoc > 0 && puestoc <= 10) 
                             {
                                                 if (altocc[puestoc - 1] != null) 
                                                 {
