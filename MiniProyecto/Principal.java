@@ -83,19 +83,23 @@ public class Principal {
             System.out.println("Seleccione una Opción: ");
             opc = entrada.nextInt();
             switch (opc) {
-                case 1: {
-                    System.out.println("Por favor ingrese los datos & elija el numero de parqueo: ");
+                case 1: {   
                     System.out.println("Por favor ingrese la placa: ");
                     placa = entrada.next();
                     System.out.println("Por favor ingrese el cilindraje: ");
                     cilindraje = entrada.nextDouble();
+                    if (cilindraje <=0 || cilindraje > 2500) 
+                    {
+                        System.out.println("El cilindraje no existe.");
+                    }
                     System.out.println("Por favor ingrese la marca: ");
                     marca = entrada.next();
                     System.out.println("Digite la hora de ingreso (Hora militar): ");
                     horaIngreso = entrada.nextInt();
-                    if (horaIngreso >659 && horaIngreso <2200) 
+                    if (horaIngreso >=659 && horaIngreso <=2201) 
                     {
-                            if (cilindraje > 0 && cilindraje <= 400) {
+                            if (cilindraje > 0 && cilindraje <= 400)
+                            {
                                 parcaderoBcc(bajocc);
                                 System.out.println("Por favor elija un puesto de parqueo: ");
                                 int puesto = entrada.nextInt();
@@ -108,7 +112,8 @@ public class Principal {
                                     }
                                 }
                             }
-                            if (cilindraje >= 401 && cilindraje <= 2500) {
+                            if (cilindraje >= 401 && cilindraje <= 2500) 
+                            {
                                 parcaderoAcc(altocc);
                                 System.out.println("Por favor elija un puesto de parqueo: ");
                                 int puesto = entrada.nextInt();
@@ -120,14 +125,12 @@ public class Principal {
                                         System.out.println("El puesto esta ocupado");
                                     }
                                 }
-                            }
-                            if (cilindraje < 0 && cilindraje > 2500) {
-                                System.out.println("El cilindraje no existe.");
-                            }
+                            }                            
                     }
                 }
                     break;
                 case 2: {
+                    
                     System.out.println(
                             "Por elija si la moto es de alto cilindraje: \n1. Bajo Cilindraje. \n2. Alto cilindraje.");
                     int cc = entrada.nextInt();
