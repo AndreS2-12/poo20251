@@ -7,13 +7,13 @@ public class Principal {
     // de objetos.
     public static void parcaderoBcc(Moto b[]) {
 
-        // Creamos el encabezado y espacios del parcadero inicializandolo con un String.
+        // Cree el encabezado y espacios del parcadero inicializandolo con un String.
         String vistaParcaderoBcc = "                                                                        PARCADERO DE BAJO CILINDRAJE                                                           \n";
         vistaParcaderoBcc += "   1        2        3       4       5       6       7       8       9       10     11      12      13      14      15      16      17      18      19      20     \n";
 
         // Hacer que el metodo recorra el array de objetos "Moto" que refleja los
-        // espacios del parcadero.
-        // bajocc.length es la cantidad de espacios total en el parcadero.
+        // espacios del parcadero si esta null se le agrega en el texto vacio sino ocupado.
+        // bajocc.length es la cantidad de espacios total en el parcadero o tamaño del arreglo.
         // indice = será la posicion del array.
         // dentro del ciclo se verificara cada espacio que este vacio o ocupado.
         for (int indice = 0; indice < b.length; indice++) {
@@ -53,18 +53,20 @@ public class Principal {
         }
         System.out.println(impresion);
     }
-
+    //Cree el arreglo de objetos de alto y bajo cilindraje de las motos.
     public static void main(String[] args) {
         Moto bajocc[] = new Moto[20];
         Moto altocc[] = new Moto[10];
-
-        // Buena praxys inicializar las variables.
+        
+        //Buena practica inicializar las variables.
         int opc = -1;
         String placa = "";
         double cilindraje = 0;
         String marca = "";
         int horaIngreso = 0;
 
+        //Al crear los objetos no estan definidos, lo ideal es darle una un valor "NULL".
+        //(Se inicializa el array de obejos (Moto).
         for (int indice = 0; indice < bajocc.length; indice++) {
             bajocc[indice] = null;
         }
@@ -75,15 +77,19 @@ public class Principal {
 
         Scanner entrada = new Scanner(System.in);
 
-        do {
+        do 
+        {
             System.out.println("  Menu Principal ");
             System.out.println("1. Registrar moto: ");
             System.out.println("2. Calcular cobro: ");
-            System.out.println("3. Salir: ");
+            System.out.println("3. Visualizar parcadero.");
+            System.out.println("4. Salir: ");
             System.out.println("Seleccione una Opción: ");
             opc = entrada.nextInt();
-            switch (opc) {
-                case 1: {   
+            switch (opc) 
+            {
+                case 1: 
+                {   
                     System.out.println("Por favor ingrese la placa: ");
                     placa = entrada.next();
                     System.out.println("Por favor ingrese el cilindraje: ");
@@ -96,7 +102,7 @@ public class Principal {
                     marca = entrada.next();
                     System.out.println("Digite la hora de ingreso (Hora militar): ");
                     horaIngreso = entrada.nextInt();
-                    if (horaIngreso >=659 && horaIngreso <=2201) 
+                    if (horaIngreso >659 && horaIngreso <2200) 
                     {
                             if (cilindraje > 0 && cilindraje <= 400)
                             {
@@ -110,8 +116,10 @@ public class Principal {
                                     } else {
                                         System.out.println("El puesto esta ocupado");
                                     }
+                                } else{
+                                    System.out.println("El puesto que digito no existe.");
                                 }
-                            }
+                            } 
                             if (cilindraje >= 401 && cilindraje <= 2500) 
                             {
                                 parcaderoAcc(altocc);
@@ -124,13 +132,17 @@ public class Principal {
                                     } else {
                                         System.out.println("El puesto esta ocupado");
                                     }
+                                }else {
+                                    System.out.println("El puesto que digito no existe.");
                                 }
                             }                            
+                    }else {
+                        System.out.println("El parcadero está cerrado a esa hora, digite bien la hora"); 
                     }
-                }
-                    break;
-                case 2: {
-                    
+                                       
+                }break;
+                case 2:
+                {  
                     System.out.println(
                             "Por elija si la moto es de alto cilindraje: \n1. Bajo Cilindraje. \n2. Alto cilindraje.");
                     int cc = entrada.nextInt();
@@ -141,7 +153,7 @@ public class Principal {
                                         puesto = entrada.nextInt();
                                         // como el obejto ya esta creado, se esta trayendo el atributo cilindraje para
                                         // generar la factura.
-                                        if (puesto > 0 && puesto <= 20)
+                                        if (puesto > 0 || puesto <= 20)
                                         {
                                             if (bajocc[puesto - 1] != null) 
                                             {
@@ -150,11 +162,17 @@ public class Principal {
                                                 {
                                                             System.out.println("Digite la hora de salida (Hora militar):");
                                                             int horaSalida = entrada.nextInt();
+                                                            if (horaSalida >659 && horaSalida <=2200) 
+                                                            {
+
                                                             // se llama la funcion con la hora que se ingresa la moto y la hora de salida de
                                                             // la moto
                                                             // para hacer el calculo de la factura.
                                                             CalcularCobro(bajocc[puesto - 1].getHoraIngreso(), horaSalida);
                                                             bajocc[puesto-1]=null;
+                                                            }else {
+                                                                System.out.println("La hora de salida no es valida.");
+                                                            }
                                                 } else {
                                                     System.out.println("El puesto no existe.");
                                                 }
@@ -163,7 +181,6 @@ public class Principal {
                                                         System.out.println("No hay moto en este puesto.");
                                                 }
                                         }
-
                     } else if (cc == 2) 
                     {
                             System.out.println("Por ingrese el puesto: ");
@@ -193,12 +210,19 @@ public class Principal {
                                                         }
                             }
                     }
-                 if (cc <1 || cc >2) {
-                    System.out.println("La opción de cilindraje no existe.");
-                 }   
+                 if (cc <1 || cc >2) 
+                    {
+                     System.out.println("La opción de cilindraje no existe.");
+                    }   
                 }break;
-                case 3: {
-                    opc = 3;
+                case 3:
+                {
+                    parcaderoBcc(bajocc);
+                    parcaderoAcc(altocc);
+                }
+                break;
+                case 4: {
+                    opc = 4;
                 }
                     break;
                 default: {
@@ -206,7 +230,7 @@ public class Principal {
                 }
                     break;
             }
-        } while (opc != 3);
+        } while (opc != 4);
 
     }
 }
