@@ -3,19 +3,18 @@ package MiniProyecto;
 import java.util.Scanner;
 
 public class Principal {
-    // Funciones para alto y bajo "cc": la funcion recibe como parametro un arreglo
-    // de objetos.
+    //Funciones para alto y bajo "cc": la funcion recibe como parametro un arreglo de objetos.
     public static void parcaderoBcc(Moto b[]) {
 
         // Cree el encabezado y espacios del parcadero inicializandolo con un String.
         String vistaParcaderoBcc = "                                                                        PARCADERO DE BAJO CILINDRAJE                                                           \n";
         vistaParcaderoBcc += "   1        2        3       4       5       6       7       8       9       10     11      12      13      14      15      16      17      18      19      20     \n";
 
-        // Hacer que el metodo recorra el array de objetos "Moto" que refleja los
-        // espacios del parcadero si esta null se le agrega en el texto vacio sino ocupado.
-        // bajocc.length es la cantidad de espacios total en el parcadero o tamaño del arreglo.
-        // indice = será la posicion del array.
-        // dentro del ciclo se verificara cada espacio que este vacio o ocupado.
+        /*Hacer que el metodo recorra el array de objetos "Moto" que refleja los
+         espacios del parcadero si esta null se le agrega en el texto vacio sino ocupado.
+         bajocc.length es la cantidad de espacios total en el parcadero o tamaño del arreglo.
+         indice = será la posicion del array dentro del ciclo se verificara cada espacio que este vacio o ocupado.
+        */ 
         for (int indice = 0; indice < b.length; indice++) {
             if (b[indice] == null) {
                 vistaParcaderoBcc += "[Vacio] ";
@@ -65,7 +64,7 @@ public class Principal {
         String marca = "";
         int horaIngreso = 0;
 
-        //Al crear los objetos no estan definidos, lo ideal es darle una un valor "NULL".
+        //Al crear los objetos no estan definidos, lo ideal es darle un valor "NULL".
         //(Se inicializa el array de obejos (Moto).
         for (int indice = 0; indice < bajocc.length; indice++) {
             bajocc[indice] = null;
@@ -106,12 +105,20 @@ public class Principal {
                     {
                             if (cilindraje > 0 && cilindraje <= 400)
                             {
+                                //Llamo la función para mostrar el parcadero. bajocc es un arreglo de objetos Moto, refleja la posición de un puesto del parcadero
+                                //Mostrando los puestos [Vacio] y [Ocupado].
                                 parcaderoBcc(bajocc);
                                 System.out.println("Por favor elija un puesto de parqueo: ");
                                 int puesto = entrada.nextInt();
-                                if (puesto > 0 && puesto < 20) {
+                                if (puesto > 0 && puesto <= 20) {
+                                    //La condición que propuse es para validar si ese puesto del arreglo esta vacio (NULL) o hay una moto.
+                                    //puesto-1 se usa porque los arreglos siempre inician en 0, los puestos salen desde 1.
                                     if (bajocc[puesto - 1] == null) {
+                                        //Creo el objeto Moto instanciandolo con los atributos datos.
+                                        //al ser un objeto de la clase Moto se heredan los metodos definidos en la clase.
+                                        //el objeto creado se va a almacenar en el arreglo del parcadero bajocc.
                                         bajocc[puesto - 1] = new Moto(placa, cilindraje, marca, horaIngreso);
+                                        //Vuelvo a llamar el parcadero para actualizar el estado del mismo.
                                         parcaderoBcc(bajocc);
                                     } else {
                                         System.out.println("El puesto esta ocupado");
@@ -149,14 +156,16 @@ public class Principal {
                     if (cc == 1) 
                     {
                                         System.out.println("Por ingrese el puesto: ");
+                                        //Creo la variable puesto para darle una posicion dentro del arreglo, en el parcadero.
                                         int puesto = 0;
                                         puesto = entrada.nextInt();
-                                        // como el obejto ya esta creado, se esta trayendo el atributo cilindraje para
-                                        // generar la factura.
-                                        if (puesto > 0 || puesto <= 20)
+                                        if (puesto > 0 && puesto <= 20)
                                         {
+                                            //bajocc es el arreglo que almacena las motos, lo que hacemos es verificar si esta vacio diciendo que sea diferente de (NULL).
                                             if (bajocc[puesto - 1] != null) 
                                             {
+                                                //Como el obejto ya esta creado, se esta trayendo el atributo cilindraje para generar la factura.
+                                                //Viendo si la moto que esta en el pues cumple el rango permitido de bajo cilindraje.
                                                 if (bajocc[puesto - 1].getCilindraje() > 0
                                                         && bajocc[puesto - 1].getCilindraje() < 400) 
                                                 {
@@ -164,11 +173,10 @@ public class Principal {
                                                             int horaSalida = entrada.nextInt();
                                                             if (horaSalida >659 && horaSalida <=2200) 
                                                             {
-
-                                                            // se llama la funcion con la hora que se ingresa la moto y la hora de salida de
-                                                            // la moto
-                                                            // para hacer el calculo de la factura.
+                                                            //Se llama la funcion con la hora que se ingresa la moto y la hora de salida de la moto
+                                                            //para hacer el calculo de la factura.
                                                             CalcularCobro(bajocc[puesto - 1].getHoraIngreso(), horaSalida);
+                                                            //Liberamos el puesto despues de hacer el cobro.
                                                             bajocc[puesto-1]=null;
                                                             }else {
                                                                 System.out.println("La hora de salida no es valida.");
