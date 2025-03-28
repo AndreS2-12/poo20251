@@ -1,4 +1,3 @@
-package Clase7;
 
 public class Consultor extends Trabajador {
 
@@ -18,6 +17,6 @@ public class Consultor extends Trabajador {
         return "Consultor { idTrabajador: " + super.getIdTrabajador() +
                 " Nombre: " + super.getNombre() +
                 " Apellido: " + super.getApellido() +
-                " Comision :" + comision + "}";
-    }
+                " Comision :" + comision + "}";
+    }
 }

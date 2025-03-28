@@ -20,7 +20,7 @@ public class Operario extends Trabajador {
         return "Operario{ idTrabajador: " + super.getIdTrabajador() +
                 " Nombre: " + super.getNombre() +
                 " Apellido: " + super.getApellido() +
-                " Horas Laboradas: " + horas + "}";
-    }
+                " Horas Laboradas: " + horas + "}";
+}
 
 }

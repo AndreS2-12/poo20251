@@ -31,6 +31,6 @@ public class Trabajador {
     public String toString(){
         return "Trabajador { idTrabajador:" + idTrabajador + 
         "Nombre:" + nombre + 
-        "Apellido: "+ apellido + "}"; 
-    }
+        "Apellido: "+ apellido + "}";
+    }
 }
