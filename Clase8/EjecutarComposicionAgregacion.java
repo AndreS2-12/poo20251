@@ -11,8 +11,8 @@ public class EjecutarComposicionAgregacion {
         Cuenta objCuenta1 = new Cuenta (10200346, "Ahorros", 2000.0);
         Cuenta obCuenta2 = new Cuenta (2525002, "Corriente", 5000.0 );
          */
-        Cliente objCliente1= new Cliente(1143183953, "Andrés");
-        Cliente objCliente2= new Cliente(100720480, "Sofia Gutierrez");
+        Cliente1 objCliente1= new Cliente1(1143183953, "Andrés");
+        Cliente1 objCliente2= new Cliente1(100720480, "Sofia Gutierrez");
 
         Banco objBanco1= new Banco("Bancamalo", "cll 5 # 3-10", c);
         System.out.println(objBanco1);

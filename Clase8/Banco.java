@@ -15,7 +15,7 @@ public class Banco {
         this.direccion=direccion;
         this.cuenta=cuenta;
     } 
-    public String consultarCliente(Cliente cliente){
+    public String consultarCliente(Cliente1 cliente){
         return cliente.toString();
     }
 
