@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Impresion extends Producto{
 
     //Atributos
@@ -5,5 +8,22 @@ public class Impresion extends Producto{
     private Foto[] foto; //Arreglo de fotos.
     
     //Método
-    
-}
+      public Impresion(Foto[] foto, String color, double precio, int numero) {
+        super(numero, precio);
+        this.color = color;
+        this.foto = foto;
+    }
+    public String getColor() {
+        return color;
+    }
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public Foto[] getFotos() {
+       return foto;
+    }
+    public void setFotos(Foto[] foto) {
+        this.foto = foto;
+    }
+}     
