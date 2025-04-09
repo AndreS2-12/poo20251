@@ -1,3 +1,4 @@
+import java.time.LocalDate;
 import java.util.*;
 
 public class Pedido{
@@ -5,13 +6,13 @@ public class Pedido{
     //Atributos
     private Cliente cliente;
     private Producto[] producto;
-    private Date fecha;
+    private LocalDate fecha;
     private int numeroTarjetaCredito; 
     private int nroProductos;
     Scanner entrada = new Scanner(System.in);
     private int contador;
     //Métodos
-    public Pedido (Cliente cliente, int nroProductos, Date fecha, int numeroTarjetaCredito){
+    public Pedido (Cliente cliente, int nroProductos, LocalDate fecha, int numeroTarjetaCredito){
         this.cliente=cliente;
         this.producto= new Producto [nroProductos];
         this.fecha=fecha;
@@ -39,11 +40,11 @@ public class Pedido{
         }
     }
 
-    public Date getFecha(){
+    public LocalDate getFecha(){
         return fecha;
     }
-    public void setFecha(Date fecha) {
-        this.fecha = new Date(fecha.getTime());
+    public void setFecha(LocalDate fecha) {
+        this.fecha = fecha;
     }
 
     public int getNumeroTarjetaCredito(){
