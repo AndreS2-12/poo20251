@@ -3,7 +3,6 @@ public class Producto {
     //Atributos
     private int numero;
     private double precio;
-    //private double resolucion; double resolucion
 
     //Métodos
     public Producto (int numero, double precio){
@@ -24,8 +23,4 @@ public class Producto {
     public void setPrecio(double precio) { 
         this.precio = precio; 
     }
-
-    //public double getResolucion(){
-    //    return resolucion;
-    //}
 }

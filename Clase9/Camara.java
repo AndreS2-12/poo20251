@@ -3,7 +3,6 @@ public class Camara extends Producto{
     //Atributos
     private String marca;
     private String modelo;
-    //private double resolucion;
 
     //Métodos
     public Camara(int numero, double precio, String marca, String modelo) {
@@ -24,5 +23,10 @@ public class Camara extends Producto{
     }
     public void setModelo(String modelo) {
         this.modelo = modelo;
+    }
+
+    public String toString(){
+        return "Camara { Marca: "  + marca +
+                        "modelo: " + modelo + " }";
     }
 }

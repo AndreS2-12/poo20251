@@ -53,5 +53,13 @@ public class Pedido{
     public void setNumeroTarjetaCredito(int numeroTarjetaCredito) {
         this.numeroTarjetaCredito = numeroTarjetaCredito;
     }
-
+    public String toString(){
+        String salida="Pedido { Cliente: "  + cliente.toString() +
+                        "producto: ";
+                        for (int x = 0; x < getProducto().length; x++) {
+                            salida += " " + getProducto()[x].toString() + "\n";
+                        }
+                        salida+="}";
+        return salida;
+    }
 }
