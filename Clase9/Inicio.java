@@ -5,6 +5,7 @@ import java.util.*;
 public class Inicio {
 
     public static void main(String[] args) {
+        //Atributos
         Scanner entrada = new Scanner(System.in);
         String nombre, cedula, marca, modelo, color;
         int numero, nroProductos, numeroTarjetaCredito, idProducto;
@@ -16,11 +17,12 @@ public class Inicio {
         boolean verificadorProducto=false;
         LocalDate fechahoy = LocalDate.now(ZoneId.of("America/Bogota"));
         int opc = -1;
+        //Ciclo de repetición Haga mientras
         do {
             System.out.println(
                     "Que desea elejir: \n 1.Crear cliente. \n 2.Realizar pedido. \n 3.Facturación. \n 4. Salir.");
             opc = entrada.nextInt();
-
+            
             switch (opc) {
                 case 1: {
                     System.out.println("Por favor ingrese el nombre del cliente: ");
@@ -38,18 +40,22 @@ public class Inicio {
                     nroProductos = entrada.nextInt();
                     System.out.println("Por favor ingrese la tarjeta de credito: ");
                     numeroTarjetaCredito = entrada.nextInt();
+                    //usamos un verificador para aclarar si hay un cliente creado de lo contrario mostrara un mensaje de error
                     if (verificador) {
                         int op1 = -1;
                         int cantidad = 0;
                         String nombref = "";
+                        //Instanciamos un nuevo pedido usando el constructor de la clase pedido.
+                        //Crea un nuevo pedido usando estos datos y guárdalo en la variable pedido.
                         pedido = new Pedido(cliente, nroProductos, fechahoy, numeroTarjetaCredito);
                         for (int contador = 0; contador < nroProductos; contador++) {
                             System.out.println("Que producto dese comprar: \n 1. Impresion. \n2. Camara.");
                             op1 = entrada.nextInt();
                             if (op1 == 1) {
                                 System.out.println("Cuantas fotos son: ");
-                                cantidad = entrada.nextInt();
-                                foto = new Foto[cantidad];
+                                cantidad = entrada.nextInt(); //lee la cantidad de fotos
+                                foto = new Foto[cantidad]; //arreglo de objetos con la cantidad que digite.
+                                // Se crea y llena el arreglo de fotos con los nombres ingresados por el usuario.
                                 for (int j = 0; j < cantidad; j++) {
                                     System.out.println("Por favor ingrese el nombre del fichero: " + (j + 1));
                                     nombref = entrada.next();
@@ -61,6 +67,8 @@ public class Inicio {
                                 precio=entrada.nextDouble();
                                 System.out.println("Por favor ingrese el ID del producto");
                                 idProducto=entrada.nextInt();
+                                //armamos un producto de tipo impresión fotográfica con sus características.
+                                //se crea un objeto de tipo impresion llamado pi y el objeto se construye usando los datos que acabas de recoger
                                 Impresion pi = new Impresion(foto, color, precio, idProducto);
                                 pedido.setProductos(pi);
                                 verificadorProducto=true;
@@ -73,6 +81,8 @@ public class Inicio {
                                 marca = entrada.next();
                                 System.out.println("Por favor ingrese el modelo: ");
                                 modelo = entrada.next();
+                                 //armamos un producto de tipo impresión fotográfica con sus características.
+                                //se crea un objeto de tipo impresion llamado pi y el objeto se construye usando los datos que acabas de recoger
                                 Camara canon= new Camara(numero, precio,marca, modelo);
                                 pedido.setProductos(canon);
                                 verificadorProducto=true;
@@ -92,7 +102,7 @@ public class Inicio {
                         verificadorProducto=false;
                     } else {
                         System.out.println("Para crear la factura debe de existir el cliente y los productos");
-                    }3                    
+                    }                   
                 }break;
 
                 case 4: {
