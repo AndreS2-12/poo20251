@@ -5,21 +5,18 @@ public class Pedido{
     
     //Atributos
     private Cliente cliente;
-    private Producto[] producto;
+    private ArrayList<Producto> listaProductos= new ArrayList<Producto>(); //Arreglo para ingresar productos
     private LocalDate fecha;
     private int numeroTarjetaCredito; 
-    private int nroProductos;
-    Scanner entrada = new Scanner(System.in);
-    private int contador;
+    private Producto producto;
+    
     //Métodos
     //Contructor: que lo reconocemos porque tiene el mismo nombre que la clase y no tiene tipo de retorno.
-    public Pedido (Cliente cliente, int nroProductos, LocalDate fecha, int numeroTarjetaCredito){
+    public Pedido (Cliente cliente, Producto producto, LocalDate fecha, int numeroTarjetaCredito){
         this.cliente=cliente;
-        this.producto= new Producto [nroProductos];
+        this.listaProductos.add(producto); //add sigfinica que estoy agregando un elemento al arreglo, es propio del arraylist
         this.fecha=fecha;
-        this.numeroTarjetaCredito=numeroTarjetaCredito;
-        this.contador=0;
-        this.nroProductos=nroProductos;
+        this.numeroTarjetaCredito=numeroTarjetaCredito;              
     }
     //Sirven para obtener el valor de un atributo (variable) privado de una clase.
     public Cliente getCliente(){
@@ -30,17 +27,11 @@ public class Pedido{
         this.cliente = cliente;
     }
 
-    public Producto[] getProducto(){
+    public Producto getProducto(){
         return producto;
     } //Setter es para ingresar, es el que permite ingresar los productos.
     public void setProductos(Producto producto) {  
-        //cuando se creó el pedido, ya se definió cuántos productos puede tener como máximo (con nroProductos).        
-        if (contador < nroProductos){
-                this.producto[contador] = producto;
-            contador++;
-        }else {
-            System.out.println("Llego al maximo de productos.");
-        }
+        this.listaProductos.add(producto);
     }
 
     public LocalDate getFecha(){
@@ -56,15 +47,16 @@ public class Pedido{
     public void setNumeroTarjetaCredito(int numeroTarjetaCredito) {
         this.numeroTarjetaCredito = numeroTarjetaCredito;
     }
-    public String toString(){
-        String salida="Pedido { Cliente: "  + cliente.toString() +
-                        "producto: ";
-                        for (int x = 0; x < getProducto().length; x++) {
-                            salida += " " + getProducto()[x].toString() + "\n";
+    public String toString(){ int valorTotal = 0;
+        String salida="Pedido: "  + cliente.toString() +
+                        " Producto: ";
+                        for (Producto p : listaProductos) {
+                            salida += " " + p.toString() + "\n";
+                            valorTotal += p.getValorTotal();
                         }
-                        salida+="}";
-                        salida+= "Fecha: \n"+fecha;
-                        salida+= "TC: \n"+numeroTarjetaCredito;
+                        salida+= "Fecha: " + fecha;
+                        salida+= "\nTarjate de Credito: " + numeroTarjetaCredito;
+                        salida+="\nValor total de la compra es: " + valorTotal;
         return salida;
     }
 }

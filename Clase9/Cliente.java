@@ -29,7 +29,7 @@ public class Cliente {
     //sirve para devolver una representación en forma de texto del objeto. Es decir, 
     //cuando tú quieras ver el contenido de un objeto de forma entendible, usas este método.
     public String toString(){
-        return "Cliente { Cedula: "  + cedula +
-                        "Nombre: " + nombre + " }";
+        return "Cliente: { Cedula: "  + cedula +
+                        " Nombre: " + nombre + " } ";
     }
 }

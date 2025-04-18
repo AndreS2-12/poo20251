@@ -6,8 +6,8 @@ public class Camara extends Producto{
 
     //Métodos
     //Contructor: que lo reconocemos porque tiene el mismo nombre que la clase y no tiene tipo de retorno.
-    public Camara(int numero, double precio, String marca, String modelo) {
-        super(numero, precio);   //Cuando se usa una subclase y el constructor de la clase padre necesita
+    public Camara(int numero, String marca, String modelo) {
+        super(numero, 2000000);   //Cuando se usa una subclase y el constructor de la clase padre necesita
         this.marca = marca;     // valores, tienes que pasárselos usando la palabra clave Super.
         this.modelo = modelo;
     }
@@ -25,10 +25,17 @@ public class Camara extends Producto{
     public void setModelo(String modelo) {
         this.modelo = modelo;
     }
+    //Sobre escritura de metodo.
+    @Override 
+    public double getValorTotal(){
+        double vTotal = getPrecio() + (getPrecio()*0.05);
+        return vTotal;
+    }
     //Es útil para ver rápidamente qué contiene un objeto, sin necesidad de usar varios 
     //getters uno por uno. Así el resultado es más práctico y legible.
     public String toString(){
         return "Camara { Marca: "  + marca +
-                        "modelo: " + modelo + " }";
+                        "modelo: " + modelo +
+                        "Precio: " + getValorTotal() + " }";
     }
 }

@@ -25,4 +25,11 @@ public class Producto {
     public void setPrecio(double precio) { 
         this.precio = precio; 
     }
+
+    public String toString(){
+        return "";
+    }
+    public double getValorTotal(){
+        return 0.0;
+    }
 }
