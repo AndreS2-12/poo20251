@@ -28,7 +28,7 @@ public class Camara extends Producto{
     //Sobre escritura de metodo.
     @Override 
     public double getValorTotal(){
-        double vTotal = getPrecio() + (getPrecio()*0.05);
+        double vTotal = getPrecio() - (getPrecio()*0.05);
         return vTotal;
     }
     //Es útil para ver rápidamente qué contiene un objeto, sin necesidad de usar varios 

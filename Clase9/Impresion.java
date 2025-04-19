@@ -33,7 +33,7 @@ public class Impresion extends Producto {
 
     @Override 
     public double getValorTotal(){
-        double vTotal = getPrecio() + (getPrecio()*0.10);
+        double vTotal = getPrecio() - (getPrecio()*0.10);
         return vTotal;
     }
     //sirve para devolver una representación en forma de texto del objeto. Es decir, 
