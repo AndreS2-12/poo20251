@@ -28,14 +28,15 @@ public class Camara extends Producto{
     //Sobre escritura de metodo.
     @Override 
     public double getValorTotal(){
-        double vTotal = getPrecio() - (getPrecio()*0.05);
+        double vTotal = getPrecio() + (getPrecio()*0.05);
         return vTotal;
     }
     //Es útil para ver rápidamente qué contiene un objeto, sin necesidad de usar varios 
     //getters uno por uno. Así el resultado es más práctico y legible.
     public String toString(){
         return "Camara { Marca: "  + marca +
-                        "modelo: " + modelo +
-                        "Precio: " + getValorTotal() + " }";
+                        " \nModelo: " + modelo +
+                        " \nPrecio Bruto: " +getPrecio() +
+                        " \nPrecio Neto: " + getValorTotal() + " }";
     }
 }

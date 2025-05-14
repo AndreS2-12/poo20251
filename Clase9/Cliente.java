@@ -6,7 +6,7 @@ public class Cliente {
 
     //Metodos
     //Contructor: que lo reconocemos porque tiene el mismo nombre que la clase y no tiene tipo de retorno.
-    public Cliente(  String cedula, String nombre){
+    public Cliente(String cedula, String nombre){
         this.cedula=cedula;
         this.nombre=nombre;
     }
